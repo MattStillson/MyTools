@@ -1,12 +1,12 @@
 ﻿Function CreateCred ($FileLocation){
-$cred= New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList "mstillsonom@ultimatemedical.onmicrosoft.com", (Get-Content $FileLocation | ConvertTo-SecureString)
+$cred= New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList "emailaccount", (Get-Content $FileLocation | ConvertTo-SecureString)
 return $cred
 }
 
 Function ConnectServices($cred){
     #Import Modules
     Import-Module MsOnline, MSOnlineExtended
-	#Get Connection Credential 
+	#Get Connection Credential
     Connect-MsolService -Credential $cred
 }
 

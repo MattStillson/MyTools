@@ -21,13 +21,3 @@ app.get("/grade", function(req, res) {
 
 app.listen(3000);
 console.log("Server ready...");
-
-
-Heat Service Center-Registrar Analyst Access to complete tickets (mirror Stephanie Ortiz),
-Outlook access to POG Inbox (pog@ultimatemedical.edu) and Transfer Credit Inbox (transfercredit@ultimatemedical.edu),
-Access to: X:\Academics Imagenow Documents and K:\Drive,
-CampusNexus access (mirror Stephanie Ortiz)
-
-imagenow and docusign
-
-Kayla Scandinaro

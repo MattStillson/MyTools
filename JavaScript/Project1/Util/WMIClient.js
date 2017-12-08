@@ -3,8 +3,8 @@ var WmiClient = require('wmi-client');
 var ip = '127.0.0.1';
 
 var wmi = new WmiClient({
-    username: 'ultimatemedical\\mstillson',
-    password: 'Polycom2017!',
+    username: 'FQDN\\mstillson',
+    password: 'Password!',
     host: 'ip'
 });
 

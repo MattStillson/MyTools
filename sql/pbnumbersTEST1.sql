@@ -24,7 +24,7 @@ BULK INSERT [dbo].[Numbers]
     FIRSTROW = 2,
     FIELDTERMINATOR = ',',  --CSV field delimiter
     ROWTERMINATOR = '\r,\n'   --Use to shift the control to next row
-    -- ERRORFILE = '\\ultimatemedical.local\public\Information Technology\Matt\PickUps\NewHire9-18Errrors.csv'
+    -- ERRORFILE = '\\Matt\PickUps\NewHire9-18Errrors.csv'
 );
 GO
 
