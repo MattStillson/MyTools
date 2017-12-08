@@ -1,0 +1,204 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ActiveDirectoryWrapper
+</name>
+</assembly>
+<members>
+<member name="M:ActiveDirectoryWrapper.PC.ADWrapper.ExtractUserName(System.String)">
+	<summary>
+ Function to extract just the login from the provided string (given in the format AMBASSADORSGROU\Firstname.Lastname)
+ </summary>
+	<param name="path">Full AD login of the associate</param>
+	<returns>The login with the "AMBASSADORSGROU\" stripped</returns>
+	<remarks></remarks>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.SetProperty(System.DirectoryServices.DirectoryEntry,System.String,System.String)">
+	<summary>
+ Helper method that sets properties for AD users.
+ </summary>
+	<param name="de">DirectoryEntry to use</param>
+	<param name="pName">Property name to set</param>
+	<param name="pValue">Value of property to set</param>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.AddUserToGroup(System.DirectoryServices.DirectoryEntry,System.DirectoryServices.DirectoryEntry,System.String)">
+	<summary>
+ Method to add a user to a group
+ </summary>
+	<param name="de">DirectoryEntry to use</param>
+	<param name="deUser">DirectoryEntry (User) to use</param>
+	<param name="GroupName">Group name (in string formation) to search and ultimately add user to</param>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.CreateAdAccount(System.String,System.String)">
+	<summary>
+ Procedure to create a new Active Directory account
+ </summary>
+	<param name="sUserName">Username for the new account</param>
+	<param name="sPassword">Password for the new account</param>
+	<remarks></remarks>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.SetPassword(System.DirectoryServices.DirectoryEntry,System.String)">
+ Method to set a user's password
+ <param name="dEntry">DirectoryEntry to use</param>
+	<param name="sPassword">Password for the new user</param>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.EnableAccount(System.DirectoryServices.DirectoryEntry)">
+	<summary>
+ Method to enable a user account in the AD.
+ </summary>
+	<param name="de"></param>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.CreateAdAccount(System.String,System.String,System.String,System.String,System.String)">
+	<summary>
+ Procedure to create a new Active Directory account
+ </summary>
+	<param name="sUserName">Username for the new account</param>
+	<param name="sPassword">Password for the new account</param>
+	<param name="sFirstName">First name of the user</param>
+	<param name="sLastName">Last name of the user</param>
+	<param name="sGroupName">Group to add the user to</param>
+	<remarks></remarks>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.DisableAccount(System.String)">
+	<summary>
+ Method that disables a user account in the AD 
+ and hides user's email from Exchange address lists.
+ </summary>
+	<param name="sLogin">Login of the user to disable</param>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.SetCultureAndIdentity">
+	<summary>
+ Establish identity (principal) and culture for a thread.
+ </summary>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.UpdateUserADAccount(System.String,System.String,System.String,System.String)">
+	<summary>
+ Method that updates user's properties
+ </summary>
+	<param name="userLogin">Login of the user to update</param>
+	<param name="userDepartment">New department of the specified user</param>
+	<param name="userTitle">New title of the specified user</param>
+	<param name="userPhoneExt">New phone extension of the specified user</param>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.ListAllADComputers">
+	<summary>
+ Function to query the Active Directory and return all the computer names on the network
+ </summary>
+	<returns>A collection populated with all the computer names</returns>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.GetGroups(System.String,System.String,System.String)">
+	<summary>
+ Function to return all the groups the user is a member od
+ </summary>
+	<param name="_path">Path to bind to the AD</param>
+	<param name="username">Username of the user</param>
+	<param name="password">password of the user</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.IsAccountActive(System.Int32)">
+	<summary>
+ This will perfrom a logical operation on the userAccountControl values
+ to see if the user account is enabled or disabled.  The flag for determining if the
+ account is active is a bitwise value (decimal =2)
+ </summary>
+	<param name="userAccountControl"></param>
+	<returns></returns>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.RemoveUserFromGroup(System.String,System.String)">
+	<summary>
+ This will perform the removal of a user from the specified group
+ </summary>
+	<param name="UserName">Username of the user to remove</param>
+	<param name="GroupName">Groupname to remove them from</param>
+	<remarks></remarks>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.Login(System.String,System.String)">
+	<summary>
+ This method will not actually log a user in, but will perform tests to ensure
+ that the user account exists (matched by both the username and password), and also
+ checks if the account is active.
+ </summary>
+	<param name="UserName"></param>
+	<param name="Password"></param>
+	<returns></returns>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.IsUserValid(System.String,System.String)">
+	<summary>
+ This method will attempt to log in a user based on the username and password
+ to ensure that they have been set up within the Active Directory.  This is the basic UserName, Password
+ check.
+ </summary>
+	<param name="UserName"></param>
+	<param name="Password"></param>
+	<returns></returns>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.GetUsersinGroup(System.String)">
+	<summary>
+ This method will return all users for the specified group in a dataset
+ </summary>
+	<param name="GroupName"></param>
+	<returns></returns>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.GetAllGroups">
+	<summary>
+ This method will query all of the defined AD groups
+ and will turn the results into a dataset to be returned
+ </summary>
+	<returns></returns>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.GetUser(System.String)">
+	<summary>
+ This will return a DirectoryEntry object if the user does exist
+ </summary>
+	<param name="UserName"></param>
+	<returns></returns>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.GetUser(System.String,System.String)">
+	<summary>
+ Override method which will perfrom query based on combination of username and password
+ This is used with the login process to validate the user credentials and return a user
+ object for further validation.  This is slightly different from the other GetUser... methods as this
+ will use the UserName and Password supplied as the authentication to check if the user exists, if so then
+ the users object will be queried using these credentials.s
+ </summary>
+	<param name="UserName"></param>
+	<param name="password"></param>
+	<returns></returns>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.GetDirectoryObject">
+	<summary>
+ This is an internal method for retreiving a new directoryentry object
+ </summary>
+	<returns></returns>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.GetDirectoryObject(System.String,System.String)">
+	<summary>
+ Override function that that will attempt a logon based on the users credentials
+ </summary>
+	<param name="UserName"></param>
+	<param name="Password"></param>
+	<returns></returns>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.GetDirectoryObject(System.String)">
+	<summary>
+ This will create the directory entry based on the domain object to return
+ The DomainReference will contain the qualified syntax for returning an entry
+ at the location rather than returning the root.  
+ i.e. /CN=Users,DC=creditsights, DC=cyberelves, DC=Com
+ </summary>
+	<param name="DomainReference"></param>
+	<returns></returns>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.GetDirectoryObject(System.String,System.String,System.String)">
+	<summary>
+ Addition override that will allow ovject to be created based on the users credentials.
+ This is useful for instances such as setting password etc.
+ </summary>
+	<param name="DomainReference"></param>
+	<param name="UserName"></param>
+	<param name="Password"></param>
+	<returns></returns>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.GetLDAPDomain">
+	<summary>
+ This will read in the ADServer value from the web.config and will return it
+ as an LDAP path ie DC=creditsights, DC=cyberelves, DC=com.
+ This is required when creating directoryentry other than the root.
+ </summary>
+	<returns></returns>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.GetProperty(System.DirectoryServices.DirectoryEntry,System.String)">
+	<summary>
+ This will retreive the specified poperty value from the DirectoryEntry object (if the property exists)
+ </summary>
+	<param name="oDE"></param>
+	<param name="PropertyName"></param>
+	<returns></returns>
+</member><member name="M:ActiveDirectoryWrapper.PC.ADWrapper.GetProperty(System.DirectoryServices.SearchResult,System.String)">
+	<summary>
+ This is an override that will allow a property to be extracted directly from
+ a searchresult object
+ </summary>
+	<param name="searchResult"></param>
+	<param name="PropertyName"></param>
+	<returns></returns>
+</member>
+</members>
+</doc>
