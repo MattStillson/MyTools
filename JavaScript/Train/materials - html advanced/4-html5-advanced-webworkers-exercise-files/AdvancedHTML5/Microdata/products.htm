@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Microdata: Product</title>
+    <link rel="Stylesheet" href="/global.css" type="text/css" />
+    <style>
+    .label
+    {
+       font-weight:bold;
+    }
+    </style>
+</head>
+<body>
+
+<div itemscope itemtype="http://data-vocabulary.org/Product" 
+    itemid="TG9873211-10" id="container">
+
+    <h1>Product</h1>
+    <h2>
+        <span itemprop="brand">Star Wars</span> 
+        <span itemprop="name">Death Star Cookie Jar</span>
+    </h2>
+    
+    <h3 class="breadcrumb">Category: <span itemprop="category" content="Home > Home &amp; Office > Kitchen Tech">Kitchen Tech</span></h3>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+    <img itemprop="image" src="death-star-cookie-jar.jpg" />
+
+    <p itemprop="description">If you're ready to make your kitchen explode with awesome, you need a 
+    Death Star Cookie Jar. It's an officially licensed Lucasfilm collectible, which means it is perfect 
+    down to the last detail. The 12" x 12" sculpted moon - we mean, Death Star - is the perfect addition 
+    to any kitchen. Just don't forget to close the exhaust ports.</p>
+
+    <p>Product #: <span itemprop="identifier" content="mpn:e7c4">e7c4</span></p>
+
+    <h2>Price</h2>
+    <span itemprop="offerDetails" itemscope itemtype="http://data-vocabulary.org/Offer">
+        <div>
+            <span class="label">Regular price:</span> $49.99
+            <meta itemprop="currency" content="USD" />
+        </div>
+        
+        <div><span class="label">Sale Price:</span> $<span itemprop="price">28.99</span></div>
+        (Sale ends <time itemprop="priceValidUntil" datetime="2011-12-31">December 31st!</time>)
+        <div><span class="label">Condition:</span> <span itemprop="condition" content="new">New (who wants a used cookie jar?)</span></div>
+        <div><span class="label">Availability:</span> <span itemprop="availability" content="in_stock">Available</span></div>
+        <div>
+            <span class="label">Listed by:</span>
+            <span itemprop="seller" itemscope itemtype="http://data-vocabulary.org/​Organization">
+                <a href="http://thinkgeek.com/" target="_blank" itemprop="url"><span itemprop="name">Think Geek</span></a>
+            </span>
+        </div>
+    </span>
+</div>
+
+</body>
+</html>
+
+<!-- 
+http://www.google.com/support/webmasters/bin/answer.py?answer=146750#offer_properties
+http://www.thinkgeek.com/homeoffice/kitchen/e7c4/
+-->

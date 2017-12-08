@@ -1,0 +1,178 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Web Storage: Web Storage Limits</title>
+    <link rel="Stylesheet" href="/global.css" type="text/css" />
+    <style>
+        #container
+        {
+            width:75%;
+        }
+        table
+        {
+            border:1px solid #ccc;
+            border-collapse:collapse;
+        }
+
+        table tr td, table tr th
+        {
+            padding:4px;
+        }
+
+        h1
+        {
+            margin-top:35px;
+        }
+
+        .column
+        {
+            position:relative;
+            float:left;
+            width:50%;
+        }
+
+        .container
+        {
+            border:1px solid #ccc;
+            padding:4px;
+            height:400px;
+            overflow:auto;
+            background-color:#eee;
+            width:350px;
+            font-size:.7em;
+        }
+
+        .container span
+        {
+            font-weight:bold;
+        }
+
+        .msg
+        {
+            position:absolute;
+            top:0px;
+            left:0px;
+            width:99%;
+            padding:6px;
+            text-align:center;
+            background-color:#ffc;    
+        }
+
+        .msg pre
+        {
+            display:inline;
+        }
+
+        #controls, #error
+        {
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Web Storage Limits</h1>
+        <h2>Remaining Space</h2>
+
+        <div id="controls">
+            <input type="button" id="start" value="Start" />
+            <input type="button" id="stop" value="Stop" />
+            <input type="button" id="clear" value="Clear" />
+        </div>
+
+        <div class="column">
+            <h2>Local</h2>
+            <div class="container">
+                <ul id="local"></ul>
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>Session</h2>
+            <div class="container">
+                <ul id="session"></ul>
+            </div>
+        </div>
+
+        <div id="error">
+            <h2>Errors</h2>
+            <ul id="errorList"></ul>
+        </div>
+    </div>
+</body>
+<script src="../scripts/jquery-1.6.2.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        var local = $("#local");
+        var session = $("#session");
+        var errorList = $("#errorList");
+
+        $("#start").click(start);
+        $("#stop").click(stop);
+        $("#clear").click(clear);
+
+        var sessionInterval, localInterval;
+        var sessionKey = 0;
+        var localKey = 0;
+
+        function start() {
+
+            localInterval = setInterval(function () {
+                var storage = window.localStorage;
+                try {
+                    window.localStorage.setItem(localKey, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum ultricies libero, vitae vulputate lacus eleifend sed. Proin varius cursus velit a ultrices. Praesent venenatis ante sit amet nisi dignissim sollicitudin. Nullam adipiscing odio id mi porttitor ut interdum lorem sodales. Proin faucibus, leo in pharetra consectetur, turpis nulla scelerisque risus, eget consectetur orci justo in tellus. Nulla viverra imperdiet leo, vel porta enim imperdiet sed. Donec imperdiet, nisl quis dictum sodales, turpis ligula tincidunt dui, vel faucibus orci risus a lectus. Maecenas quis lorem lorem. Cras nisi risus, fermentum nec molestie vel, viverra eget leo. Etiam vitae dui magna. Maecenas in sem nisi, vel posuere sapien. Sed nulla ligula, vestibulum in dignissim id, tincidunt id libero. Aliquam erat volutpat. Fusce commodo mollis lacus quis gravida. Cras varius hendrerit blandit. Proin leo urna, venenatis a pharetra id, volutpat non metus. Nulla vel fringilla eros. Morbi ultricies ipsum metus, nec facilisis nunc. Nullam risus lectus, auctor non vulputate eu, commodo eu urna. Suspendisse blandit congue est ut varius. Vestibulum nec tortor justo, et consectetur dui. Nulla erat ligula, commodo tempus faucibus id, pharetra vitae ligula. Ut mi nibh, volutpat non consequat eu, facilisis non tellus. Nam et orci in urna elementum convallis. Praesent non sem ligula. Maecenas diam lectus, dignissim hendrerit tincidunt at, varius et libero. Nullam sed nulla lectus. Nullam mattis, odio sit amet rhoncus vehicula, odio risus facilisis diam, a facilisis nisl erat ac dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nibh nibh, rutrum sed placerat sit amet, scelerisque molestie orci. Nulla molestie, tellus quis pharetra elementum, metus enim egestas mauris, et facilisis arcu leo quis sem. Vivamus elementum dapibus nunc et aliquam. Vestibulum at nulla justo, in sagittis quam. Curabitur pulvinar mattis sapien at viverra. Aliquam sed orci purus. Pellentesque non magna a tortor suscipit tempor. Curabitur dictum euismod vehicula. Sed eget diam vitae odio aliquet ultrices. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ac orci velit. Nunc posuere blandit eros eget ultrices. Nam justo nulla, eleifend eu tempus vitae, mollis nec erat. Donec auctor ultricies ipsum. Pellentesque volutpat nisl ac dolor scelerisque dignissim. Nullam tristique, massa vitae faucibus egestas, lectus eros tristique ante, vel condimentum eros quam ut erat. Phasellus fermentum, dui sit amet aliquet tincidunt, orci lorem iaculis enim, eu condimentum nulla velit vitae orci. Nullam et nunc massa, ullamcorper semper velit. Integer iaculis pulvinar nulla, id semper enim porttitor semper. Nunc eros massa, imperdiet vitae ultrices semper, posuere ac nisi. Proin nec enim sem. Vivamus at justo sem. Integer tempus rutrum arcu nec ullamcorper. Sed a dignissim dolor. Sed lectus orci, rhoncus quis viverra non, scelerisque eget ante. Aliquam velit eros, egestas eget accumsan vitae, sodales sed risus. Phasellus euismod risus eu nulla sagittis congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non nulla nec urna convallis congue. Etiam vehicula augue et ligula rutrum vestibulum. Pellentesque aliquet, metus ac pulvinar porttitor, ante libero hendrerit lorem, ut semper ante quam sit amet orci. Donec at erat tellus. Pellentesque sed tempor nulla. Maecenas rhoncus iaculis dui, sed porttitor nisl mattis ac. Maecenas odio arcu, varius ac elementum id, interdum ac ante. Praesent mauris libero, cursus sit amet vulputate id, imperdiet sit amet nulla. Proin mollis dolor non enim scelerisque a posuere est sollicitudin. Donec gravida pellentesque erat, at feugiat turpis auctor ut. Aliquam iaculis hendrerit sapien, fringilla auctor leo tempus ut. Mauris eros sem, ultricies vel dapibus quis, vestibulum vitae dolor. Donec felis dui, tincidunt in luctus sed, congue et massa. Proin ultricies tempus velit sit amet fringilla. Ut nec feugiat mi. Duis ut venenatis eros. Donec varius, est et convallis malesuada, ipsum ante auctor odio, ut consectetur erat dui sed massa. Nulla facilisi. In aliquet varius nisi vitae interdum. Fusce eleifend pretium magna ut accumsan. Integer purus mauris, sagittis commodo pulvinar at, placerat volutpat sem. Proin tempus lacinia neque ac facilisis. Nullam augue mauris, dapibus ut bibendum sed, scelerisque id eros. Maecenas bibendum consequat massa, et luctus leo ultrices et. Nunc enim lacus, feugiat vitae elementum et, luctus in eros. Praesent iaculis neque dui. Donec eget dui non purus congue suscipit. Nam lacinia lorem vitae mi dictum semper. Donec eget dui nisi. Nulla eget orci neque, quis luctus quam. Nunc dapibus suscipit dictum. Phasellus feugiat ullamcorper tellus, sit amet molestie libero sagittis a. Quisque eget nisl mauris, quis dictum purus. Pellentesque tempus nibh sed nisl honcus viverra. Proin vulputate venenatis accumsan. Donec eu libero id massa vulputate feugiat. Nulla vel iaculis ipsum. Pellentesque faucibus dignissim augue sed hendrerit. Praesent urna risus, commodo in convallis tempus, tempus at odio. Etiam lacus orci, molestie a sagittis non, iaculis quis metus. Mauris interdum luctus leo, vel mattis urna convallis a. Maecenas pretium ligula id lectus lacinia non facilisis ipsum euismod. Nulla facilisi. Sed et dapibus justo. Vivamus nec felis nec enim tincidunt ornare quis vel est. Morbi urna risus, faucibus vel consequat at, feugiat sed tortor. Proin id libero erat. Nunc cursus urna sed nisl gravida malesuada. Phasellus malesuada, lacus et sodales tempus, ante nibh fermentum erat, viverra semper purus neque id est. Nulla pharetra mauris non enim varius eget auctor diam rhoncus. Duis sagittis, nisi ut feugiat malesuada, est sem iaculis enim, ut scelerisque nulla justo eget purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam dignissim velit lacus, ut aliquet neque. Phasellus ullamcorper feugiat nibh, eget venenatis metus fringilla vel. Pellentesque nisl felis, volutpat a tempor a, tempor ut sapien. Donec quis gravida augue. Nullam ornare, dui quis ultrices placerat, justo turpis auctor ante, sit amet pulvinar mauris nulla id mauris. Mauris tincidunt dolor nec orci mattis tempus. Proin et tellus accumsan neque convallis scelerisque a nec nibh. Nullam viverra ullamcorper dui, mattis pharetra nibh pharetra in. Sed eget orci tortor, ac sagittis elit. Suspendisse potenti. Sed elit massa, vulputate ac dignissim quis, ultricies nec enim. In vitae lorem arcu, in auctor mauris. Etiam id diam felis, vel dapibus neque. Curabitur ac mi sit amet turpis.");
+                    local.append("<li><span>Storage Length</span>: " +
+                        storage.length +
+                        " <span>Remaining Space</span>: "
+                        + storage.remainingSpace +
+                        "</li>");
+                } catch (e) {
+                    errorList.append("<li>Local Storage error: " + e + "</li>");
+                    clearInterval(localInterval);
+                }
+
+                localKey++;
+            }, 10);
+
+            sessionInterval = setInterval(function () {
+                var storage = window.sessionStorage;
+                try {
+                    storage.setItem(sessionKey, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In bibendum ultricies libero, vitae vulputate lacus eleifend sed. Proin varius cursus velit a ultrices. Praesent venenatis ante sit amet nisi dignissim sollicitudin. Nullam adipiscing odio id mi porttitor ut interdum lorem sodales. Proin faucibus, leo in pharetra consectetur, turpis nulla scelerisque risus, eget consectetur orci justo in tellus. Nulla viverra imperdiet leo, vel porta enim imperdiet sed. Donec imperdiet, nisl quis dictum sodales, turpis ligula tincidunt dui, vel faucibus orci risus a lectus. Maecenas quis lorem lorem. Cras nisi risus, fermentum nec molestie vel, viverra eget leo. Etiam vitae dui magna. Maecenas in sem nisi, vel posuere sapien. Sed nulla ligula, vestibulum in dignissim id, tincidunt id libero. Aliquam erat volutpat. Fusce commodo mollis lacus quis gravida. Cras varius hendrerit blandit. Proin leo urna, venenatis a pharetra id, volutpat non metus. Nulla vel fringilla eros. Morbi ultricies ipsum metus, nec facilisis nunc. Nullam risus lectus, auctor non vulputate eu, commodo eu urna. Suspendisse blandit congue est ut varius. Vestibulum nec tortor justo, et consectetur dui. Nulla erat ligula, commodo tempus faucibus id, pharetra vitae ligula. Ut mi nibh, volutpat non consequat eu, facilisis non tellus. Nam et orci in urna elementum convallis. Praesent non sem ligula. Maecenas diam lectus, dignissim hendrerit tincidunt at, varius et libero. Nullam sed nulla lectus. Nullam mattis, odio sit amet rhoncus vehicula, odio risus facilisis diam, a facilisis nisl erat ac dui. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam nibh nibh, rutrum sed placerat sit amet, scelerisque molestie orci. Nulla molestie, tellus quis pharetra elementum, metus enim egestas mauris, et facilisis arcu leo quis sem. Vivamus elementum dapibus nunc et aliquam. Vestibulum at nulla justo, in sagittis quam. Curabitur pulvinar mattis sapien at viverra. Aliquam sed orci purus. Pellentesque non magna a tortor suscipit tempor. Curabitur dictum euismod vehicula. Sed eget diam vitae odio aliquet ultrices. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum ac orci velit. Nunc posuere blandit eros eget ultrices. Nam justo nulla, eleifend eu tempus vitae, mollis nec erat. Donec auctor ultricies ipsum. Pellentesque volutpat nisl ac dolor scelerisque dignissim. Nullam tristique, massa vitae faucibus egestas, lectus eros tristique ante, vel condimentum eros quam ut erat. Phasellus fermentum, dui sit amet aliquet tincidunt, orci lorem iaculis enim, eu condimentum nulla velit vitae orci. Nullam et nunc massa, ullamcorper semper velit. Integer iaculis pulvinar nulla, id semper enim porttitor semper. Nunc eros massa, imperdiet vitae ultrices semper, posuere ac nisi. Proin nec enim sem. Vivamus at justo sem. Integer tempus rutrum arcu nec ullamcorper. Sed a dignissim dolor. Sed lectus orci, rhoncus quis viverra non, scelerisque eget ante. Aliquam velit eros, egestas eget accumsan vitae, sodales sed risus. Phasellus euismod risus eu nulla sagittis congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non nulla nec urna convallis congue. Etiam vehicula augue et ligula rutrum vestibulum. Pellentesque aliquet, metus ac pulvinar porttitor, ante libero hendrerit lorem, ut semper ante quam sit amet orci. Donec at erat tellus. Pellentesque sed tempor nulla. Maecenas rhoncus iaculis dui, sed porttitor nisl mattis ac. Maecenas odio arcu, varius ac elementum id, interdum ac ante. Praesent mauris libero, cursus sit amet vulputate id, imperdiet sit amet nulla. Proin mollis dolor non enim scelerisque a posuere est sollicitudin. Donec gravida pellentesque erat, at feugiat turpis auctor ut. Aliquam iaculis hendrerit sapien, fringilla auctor leo tempus ut. Mauris eros sem, ultricies vel dapibus quis, vestibulum vitae dolor. Donec felis dui, tincidunt in luctus sed, congue et massa. Proin ultricies tempus velit sit amet fringilla. Ut nec feugiat mi. Duis ut venenatis eros. Donec varius, est et convallis malesuada, ipsum ante auctor odio, ut consectetur erat dui sed massa. Nulla facilisi. In aliquet varius nisi vitae interdum. Fusce eleifend pretium magna ut accumsan. Integer purus mauris, sagittis commodo pulvinar at, placerat volutpat sem. Proin tempus lacinia neque ac facilisis. Nullam augue mauris, dapibus ut bibendum sed, scelerisque id eros. Maecenas bibendum consequat massa, et luctus leo ultrices et. Nunc enim lacus, feugiat vitae elementum et, luctus in eros. Praesent iaculis neque dui. Donec eget dui non purus congue suscipit. Nam lacinia lorem vitae mi dictum semper. Donec eget dui nisi. Nulla eget orci neque, quis luctus quam. Nunc dapibus suscipit dictum. Phasellus feugiat ullamcorper tellus, sit amet molestie libero sagittis a. Quisque eget nisl mauris, quis dictum purus. Pellentesque tempus nibh sed nisl honcus viverra. Proin vulputate venenatis accumsan. Donec eu libero id massa vulputate feugiat. Nulla vel iaculis ipsum. Pellentesque faucibus dignissim augue sed hendrerit. Praesent urna risus, commodo in convallis tempus, tempus at odio. Etiam lacus orci, molestie a sagittis non, iaculis quis metus. Mauris interdum luctus leo, vel mattis urna convallis a. Maecenas pretium ligula id lectus lacinia non facilisis ipsum euismod. Nulla facilisi. Sed et dapibus justo. Vivamus nec felis nec enim tincidunt ornare quis vel est. Morbi urna risus, faucibus vel consequat at, feugiat sed tortor. Proin id libero erat. Nunc cursus urna sed nisl gravida malesuada. Phasellus malesuada, lacus et sodales tempus, ante nibh fermentum erat, viverra semper purus neque id est. Nulla pharetra mauris non enim varius eget auctor diam rhoncus. Duis sagittis, nisi ut feugiat malesuada, est sem iaculis enim, ut scelerisque nulla justo eget purus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam dignissim velit lacus, ut aliquet neque. Phasellus ullamcorper feugiat nibh, eget venenatis metus fringilla vel. Pellentesque nisl felis, volutpat a tempor a, tempor ut sapien. Donec quis gravida augue. Nullam ornare, dui quis ultrices placerat, justo turpis auctor ante, sit amet pulvinar mauris nulla id mauris. Mauris tincidunt dolor nec orci mattis tempus. Proin et tellus accumsan neque convallis scelerisque a nec nibh. Nullam viverra ullamcorper dui, mattis pharetra nibh pharetra in. Sed eget orci tortor, ac sagittis elit. Suspendisse potenti. Sed elit massa, vulputate ac dignissim quis, ultricies nec enim. In vitae lorem arcu, in auctor mauris. Etiam id diam felis, vel dapibus neque. Curabitur ac mi sit amet turpis.");
+                    session.append("<li><span>Storage Length</span>: " +
+                        storage.length +
+                        " <span>Remaining Space</span>: "
+                        + storage.remainingSpace +
+                        "</li>");
+                } catch (e) {
+                    errorList.append("<li>Session Storage error: " + e + "</li>");
+                    clearInterval(sessionInterval);
+                }
+
+                sessionKey++;
+            }, 10);
+        }
+
+        function stop() {
+            clearInterval(localInterval);
+            clearInterval(sessionInterval);
+        }
+
+        function clear() {
+            window.localStorage.clear();
+            window.sessionStorage.clear();
+
+            local.html("");
+            session.html("");
+            errorList.html("");
+        }
+
+        if (typeof (window.localStorage.remainingSpace) == "undefined" || 
+                window.localStorage.remainingSpace == null) {
+            $("body").append("<div class='msg'>This demo works best with a browser that implements the <pre>remainingSpace</pre> property of the Web Storage API. Try Internet Explorer 9+.</div>");
+        }
+
+        clear();
+        start();
+    });
+</script>
+</html>

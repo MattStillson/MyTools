@@ -1,0 +1,54 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+                    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <link rel="stylesheet" href="qunit.css" type="text/css" media="screen" />
+  <script type="text/javascript" src="qunit.js"></script>  
+</head>
+<body>
+  <h1 id="qunit-header">QUnit example</h1>
+ <h2 id="qunit-banner"></h2>
+ <div id="qunit-testrunner-toolbar"></div>
+ <h2 id="qunit-userAgent"></h2>
+ <ol id="qunit-tests"></ol>
+ <div id="qunit-fixture">test markup, will be hidden</div>
+
+ <script type="text/javascript">
+
+     module("ok assertion");
+     
+     test("passing test", function () {
+         ok(true, "this test passes");
+     });
+
+     test("failure", function () {
+         ok(false, "this test fails");
+     });
+
+     
+     module("equal assertion");
+
+     test("equal pass", function () {
+         equal(1 + 1, 2, "equal pass");
+     });
+
+     test("equal fail", function () {
+         equal(1 + 1, 7, "equal fail");
+     });
+
+     
+     module("deepEqual assertion");
+
+     test("deepEqual pass", function () {
+         deepEqual([1, 2], [1, 2]);
+     });
+
+     test("deepEqual fail", function () {
+         deepEqual([1, 2], [1, 4]);
+     }); 
+ 
+ </script>
+
+</body>
+</html>

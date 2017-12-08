@@ -1,0 +1,128 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+    <title>Web Storage: Tracking Events</title>
+    <link rel="Stylesheet" href="/global.css" type="text/css" />
+    <style>    
+    textarea
+    {
+        font-family:Segoe UI,Arial,Helvetica,Sans-Serif;
+        width:500px;
+        height:200px;
+        display:block;
+        margin-bottom:25px;
+    }
+    
+    h1
+    {
+        margin-top:35px;
+    }
+    
+    label
+    {
+        display:block;
+        font-weight:bold;
+        margin-top:25px;
+    }
+    
+    .msg
+    {
+        position:absolute;
+        top:0px;
+        left:0px;
+        width:99%;
+        padding:6px;
+        text-align:center;
+        background-color:#ffc;    
+    }
+
+    .msg pre
+    {
+        display:inline;
+    }
+    
+    #messageContainer
+    {
+        height:20px;
+    }
+    </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Handling the Web Storage Event</h1>
+            <h2>Task List</h2>
+            <div id="messageContainer"><span id="msg"></span></div>
+            <textarea id="tasksBox" autofocus></textarea>
+            <button id="saveButton">Save</button>
+            <a href="javascript:void(0);" id="deleteAllLink">Delete</a>
+            <div id="log"></div>
+            <fieldset>
+                <label>Key</label>
+                <span id="key"></span>
+
+                <label>New Value</label>
+                <span id="newValue"></span>
+
+                <label>Old Value</label>
+                <span id="oldValue"></span>
+
+                <label>Url</label>
+                <span id="url"></span>
+            </fieldset>
+        </div>
+    </body>
+    <script src="../scripts/jquery-1.6.2.js" type="text/javascript"></script>
+    <script>
+        var tasksBox, msg;
+
+        $(function () {
+            tasksBox = $("#tasksBox");
+            msg = $("#msg");
+
+            if (window.localStorage) {
+                if (window.localStorage.taskList != null) {
+                    var tasks = window.localStorage.taskList;
+                    var taskList = tasks.split(",").join("\n");
+                    tasksBox.val(taskList);
+                }
+            }
+
+            $("#saveButton").click(function () {
+                save();
+                showMessage("Saved");
+            });
+
+            $("#deleteAllLink").click(function () {
+                window.localStorage.removeItem("taskList");
+                tasksBox.val("");
+                showMessage("Deleted");
+            });
+
+            function displayStorageEvent(e) {
+                $("#key").html(e.key);
+                $("#newValue").html(e.newValue);
+                $("#oldValue").html(e.oldValue);
+                $("#url").html(e.url);
+                //e.storageArea //<- reference to either Local or Session instance
+            }
+
+            window.addEventListener("storage", displayStorageEvent, false);
+
+            if (typeof (window.onstorage) == "undefined") {
+                $("body").append("<div class='msg'>This demo only works with a browser that implements the <pre>window.onstorage</pre> event of the Web Storage API. Try Internet Explorer 9+.</div>");
+            }
+
+        });
+
+        function save() {
+            var tasks = tasksBox.val();
+            var taskList = tasks.split("\n").join(",");
+            window.localStorage.taskList = taskList;
+        }
+
+        function showMessage(message) {
+            msg.html(message);
+            msg.fadeOut(1000);
+        }
+    </script>
+</html>

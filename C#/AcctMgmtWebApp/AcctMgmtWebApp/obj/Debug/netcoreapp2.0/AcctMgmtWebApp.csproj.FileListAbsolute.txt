@@ -1,0 +1,11 @@
+C:\Users\mstillson\Desktop\today\sqlScripts\AcctMgmtWebApp\AcctMgmtWebApp\bin\Debug\netcoreapp2.0\AcctMgmtWebApp.deps.json
+C:\Users\mstillson\Desktop\today\sqlScripts\AcctMgmtWebApp\AcctMgmtWebApp\bin\Debug\netcoreapp2.0\AcctMgmtWebApp.runtimeconfig.json
+C:\Users\mstillson\Desktop\today\sqlScripts\AcctMgmtWebApp\AcctMgmtWebApp\bin\Debug\netcoreapp2.0\AcctMgmtWebApp.runtimeconfig.dev.json
+C:\Users\mstillson\Desktop\today\sqlScripts\AcctMgmtWebApp\AcctMgmtWebApp\bin\Debug\netcoreapp2.0\AcctMgmtWebApp.dll
+C:\Users\mstillson\Desktop\today\sqlScripts\AcctMgmtWebApp\AcctMgmtWebApp\obj\Debug\netcoreapp2.0\AcctMgmtWebApp.csprojResolveAssemblyReference.cache
+C:\Users\mstillson\Desktop\today\sqlScripts\AcctMgmtWebApp\AcctMgmtWebApp\obj\Debug\netcoreapp2.0\AcctMgmtWebApp.csproj.CoreCompileInputs.cache
+C:\Users\mstillson\Desktop\today\sqlScripts\AcctMgmtWebApp\AcctMgmtWebApp\obj\Debug\netcoreapp2.0\AcctMgmtWebApp.AssemblyInfoInputs.cache
+C:\Users\mstillson\Desktop\today\sqlScripts\AcctMgmtWebApp\AcctMgmtWebApp\obj\Debug\netcoreapp2.0\AcctMgmtWebApp.AssemblyInfo.cs
+C:\Users\mstillson\Desktop\today\sqlScripts\AcctMgmtWebApp\AcctMgmtWebApp\bin\Debug\netcoreapp2.0\AcctMgmtWebApp.pdb
+C:\Users\mstillson\Desktop\today\sqlScripts\AcctMgmtWebApp\AcctMgmtWebApp\obj\Debug\netcoreapp2.0\AcctMgmtWebApp.dll
+C:\Users\mstillson\Desktop\today\sqlScripts\AcctMgmtWebApp\AcctMgmtWebApp\obj\Debug\netcoreapp2.0\AcctMgmtWebApp.pdb

@@ -1,0 +1,19 @@
+PS2EXE
+
+Version 0.5.0.0 (11.14.2014) by Ingo Karstein
+
+Version 0.5.0.1 (12.18.2016) by Ken Isacson
+- Implemented SetBufferContents to support Clear-Host
+- Fixed x64 option to specify -x64 insted of -verbose 
+- renamed icon file in archive from PSEXE.ico to PS2EXE.ico to fix batch file errors.
+- Icon file no longer required to be in script directory
+- Icon file option now supported for PowerShell 2.0 on PowerShell 3.0/4.0
+
+Version 0.5.1.0 (06.21.2017) by Ken Isacson
+
+- added support for PowerShell 5.0 to ps2exe.ps1
+- removed unnessary single quotes from set cmd in the callPS2EXE.bat file which caused problems
+- add -ExecutionPolicy Bypass arguments to the callPS2EXE.bat file to prevent compile restriction
+
+
+

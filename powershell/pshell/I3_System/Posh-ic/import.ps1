@@ -1,0 +1,1 @@
+import-module 'C:\Scripts\Scripts\Posh-ic\Posh-ic.psm1'

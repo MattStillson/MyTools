@@ -1,0 +1,6 @@
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\OfflineDemo\bin\OfflineDemo.dll
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\OfflineDemo\bin\OfflineDemo.pdb
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\OfflineDemo\bin\EntityFramework.xml
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\OfflineDemo\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\OfflineDemo\obj\Debug\OfflineDemo.dll
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\OfflineDemo\obj\Debug\OfflineDemo.pdb

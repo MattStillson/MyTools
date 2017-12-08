@@ -1,0 +1,29 @@
+<div class="container" style="padding-left: 0; padding-right: 0;">
+  <header class="navbar navbar-light navbar-fixed-top navbar-expand-lg">
+    <a class="navbar-brand" [routerLink]="['/home']" (click)="navbarCollapsed = true">My Study Guide</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" (click)="navbarCollapsed = !navbarCollapsed"
+            [attr.aria-expanded]="!navbarCollapsed" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse" [ngbCollapse]="navbarCollapsed" id="navbarContent">
+      <div class="navbar-nav mr-sm-2">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Productivity</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item" [routerLink]="['/identities']">MCSA: 70-346</button>
+            <button class="dropdown-item" [routerLink]="['/services']">MCSA: 70-347</button>
+            <button class="dropdown-item" [routerLink]="['/exchange']">MCSE: 70-345</button>
+          </div>
+        </div>
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownBasic2" ngbDropdownToggle>Cloud</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+            <button class="dropdown-item" [routerLink]="['/devazure']">MCSA: 70-532</button>
+            <button class="dropdown-item" [routerLink]="['/security']">MCSA: 70-744</button>
+            <button class="dropdown-item" [routerLink]="['/devops']">MCSE: 70-538</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>

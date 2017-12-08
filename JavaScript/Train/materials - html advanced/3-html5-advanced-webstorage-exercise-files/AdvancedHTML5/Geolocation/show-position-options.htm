@@ -1,0 +1,119 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <title>Geolocation: Show Position Options</title>
+        <link rel="Stylesheet" href="/global.css" type="text/css" />
+        <style>
+        label 
+        {
+            display:block;
+            margin-top:12px;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Show Position Options</h1>
+            <section>
+                <input type="button" id="getLocationButton" value="Get Location" />
+                <a href="" id="mapLink" target="_blank">View Map</a>
+
+                <label for="lat">Latitude:</label>
+                <input type="text" id="lat" name="lat" />
+            
+                <label for="long">Longitude:</label>
+                <input type="text" id="long" name="long" />
+
+                <label for="alt">Altitude</label>
+                <input type="text" id="alt" name="alt" />
+
+                <label for="acc">Accuracy</label>
+                <input type="text" id="acc" name="acc" />
+
+                <label for="altAcc">Altitude Accuracy</label>
+                <input type="text" id="altAcc" name="altAcc" />
+
+                <label for="heading">Heading</label>
+                <input type="text" id="heading" name="heading" />
+
+                <label for="speed">Speed</label>
+                <input type="text" id="speed" name="speed" />
+
+                <label for="timestamp">Timestamp</label>
+                <input type="text" id="timestamp" name="timestamp" />
+
+                <ul id="log"></ul>
+            </section>
+        </div>
+    </body>
+    <script src="../scripts/jquery-1.6.2.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            var mapLink = $("#mapLink");
+            var log = $("#log");
+
+            $("#getLocationButton").click(function () {
+
+                // Create geolocation options object
+                var options = {
+                    enableHighAccuracy: true,   //  boolean (default: false)
+                    timeout: 10000,             //  in milliseconds (default: no limit)
+                    maximumAge: 1000            //  in milliseconds (default: 0)
+                };
+
+                navigator.geolocation.getCurrentPosition(showPosition, positionError, options);
+            });
+
+            function showPosition(position) {
+                var coords = position.coords;
+
+                $("#lat").val(coords.latitude);
+                $("#long").val(coords.longitude);
+
+                //*
+                // Protect the author's privacy and map to Disneyland :)
+                $("#lat").val(33.8114);
+                $("#long").val(-117.9211);
+                //*/
+
+                $("#acc").val(coords.accuracy);
+                $("#alt").val(coords.altitude);
+                $("#altAcc").val(coords.altitudeAccuracy);
+                $("#heading").val(coords.heading);
+                $("#speed").val(coords.speed);
+                $("#timestamp").val(coords.timestamp);
+
+                // Map your current position by latitude/longitude coordinates
+                mapLink.attr("href", "http://maps.google.com/maps?q=" +
+                    $("#lat").val() + ",+" +
+                    $("#long").val() + "+(You+are+here!)&iwloc=A&hl=en");
+
+                mapLink.show();
+            }
+
+            function positionError(e) {
+                switch (e.code) {
+                    case 0: // UNKNOWN_ERROR
+                        logMsg("The application has encountered an unknown error while trying to determine your current location. Details: " + e.message);
+                        break;
+                    case 1: // PERMISSION_DENIED
+                        logMsg("You chose not to allow this application access to your location.");
+                        break;
+                    case 2: // POSITION_UNAVAILABLE
+                        logMsg("The application was unable to determine your location.");
+                        break;
+                    case 3: // TIMEOUT
+                        logMsg("The request to determine your location has timed out.");
+                        break;
+                }
+            }
+
+            function logMsg(msg) {
+                log.append("<li>" + msg + "</li>");
+            }
+
+            mapLink.hide();
+        });
+
+    </script>    
+</html>

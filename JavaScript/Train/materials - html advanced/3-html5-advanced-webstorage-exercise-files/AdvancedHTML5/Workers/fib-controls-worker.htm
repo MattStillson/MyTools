@@ -1,0 +1,118 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Web Worker: Controlling the Worker</title>
+    <link rel="Stylesheet" href="/global.css" type="text/css" />
+    <style>
+    ol
+    {
+        background-color:#ccc;
+        width:20%;
+    }
+    
+    ol li
+    {
+        background-color:#fff;
+        padding-left:5px;    
+        margin:4px;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Generate Fibonacci Series</h1>
+        <h2>With Controls</h2>
+        <input type="numeric" id="seriesLength" value="40" />
+        <input type="button" id="generateButton" value="Generate Series" />
+        <input type="text" id="echoBox" placeholder="type message for worker" />
+        <input type="button" id="terminateButton" value="Terminate" />
+        <input type="button" id="closeButton" value="Close" />
+        <img src="load.gif" id="loadImg" />
+        <ul id="log"></ul>
+        <ol id="series"></li>
+    </div>
+</body>
+<script src="../scripts/jquery-1.6.2.js" type="text/javascript"></script>
+<script>
+    var log = null;
+    var loadImg;
+    var _worker = null;
+    var seriesValues;
+
+    $(function () {
+        log = $("#log");
+        seriesValues = $("#series");
+        loadImg = $("#loadImg");
+        loadImg.hide();
+
+        $("#generateButton").click(function () {
+            var seriesLength = parseInt($("#seriesLength").val());
+
+            log.html("");
+            seriesValues.html("");
+            loadImg.show();
+
+            var args = createNewArgs("start", seriesLength);
+            getWorker().postMessage(args);
+        });
+
+        $("#closeButton").click(function () {
+            var args = createNewArgs("close");
+            getWorker().postMessage(args);
+        });
+
+        $("#terminateButton").click(function () {
+            getWorker().terminate();
+            logMsg("Terminated worker thread from UI thread.");
+            loadImg.hide();
+        });
+
+        $("#echoBox").change(function () {
+            var args = createNewArgs("echo", null, this.value);
+            getWorker().postMessage(args);
+        });
+
+        function getWorker() {
+            if (_worker == null) {
+                _worker = new Worker("fib-controls-worker.js");
+                _worker.onmessage = messageHandler;
+                _worker.onerror = errorHandler;
+            }
+            return _worker;
+        }
+
+        function createNewArgs(command, value, message) {
+            return { Command: command, Value: value, Message: message };
+        }
+
+        function messageHandler(e) {
+            var results = e.data;
+
+            if (results.Result != null) {
+                $.each(results.Result, function () {
+                    showValue(this);
+                });
+            }
+
+            if (results.Message != "") {
+                logMsg(results.Message);
+            }
+
+            loadImg.hide();
+        }
+
+        function errorHandler(e) {
+            logMsg(e.message);
+        }
+
+        function logMsg(msg) {
+            log.append("<li>" + msg + "</li>");
+        }
+
+        function showValue(val) {
+            seriesValues.append("<li>" + val + "</li>");
+        }
+
+    });
+</script>
+</html>

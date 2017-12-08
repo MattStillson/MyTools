@@ -1,0 +1,5 @@
+﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="SilverlightObjectDemo" EntryPointType="SilverlightObjectDemo.App" RuntimeVersion="4.0.60310.0">
+  <Deployment.Parts>
+    <AssemblyPart x:Name="SilverlightObjectDemo" Source="SilverlightObjectDemo.dll" />
+  </Deployment.Parts>
+</Deployment>

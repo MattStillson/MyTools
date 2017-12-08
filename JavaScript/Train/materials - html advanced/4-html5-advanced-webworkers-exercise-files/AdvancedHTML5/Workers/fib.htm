@@ -1,0 +1,81 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Web Workers: Generate Fibonacci Series - No Worker</title>    
+    <link rel="Stylesheet" href="/global.css" type="text/css" />
+    <style>   
+    ol
+    {
+        background-color:#ccc;
+        width:20%;
+    }
+    
+    ol li
+    {
+        background-color:#fff;
+        padding-left:5px;    
+        margin:4px;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Generate Fibonacci Series</h1>
+        <h2>No Worker</h2>
+        <input type="numeric" id="seriesLength" value="40" />
+        <input type="button" id="generateButton" value="Generate Series" />
+        <img src="load.gif" />
+        <ol id="log"></ol>
+    </div>
+</body>
+<script src="../scripts/jquery-1.6.2.js" type="text/javascript"></script>
+<script>
+    var results = [];
+    var log;
+
+    $(function () {
+        log = $("#log");
+
+        $("#generateButton").click(function () {
+
+            log.html("");
+
+            var seriesLength = parseInt($("#seriesLength").val());
+
+            generateFibonacciSeries(seriesLength);
+
+            $.each(results, function () {
+                logMsg(this);
+            });
+        });
+
+    });
+
+    function calculateNextFibonacciValue(n) {
+        var s = 0;
+        var returnValue;
+
+        if (n == 0) {
+            return (s); 
+        }
+        if (n == 1) {
+            s += 1;
+            return (s);
+        }
+        else {
+            return (calculateNextFibonacciValue(n - 1) + calculateNextFibonacciValue(n - 2));
+        }
+    }
+
+    function generateFibonacciSeries(n) {
+        results.length = 0;
+        for (var i = 0; i <= n-1; i++) {
+            results.push(calculateNextFibonacciValue(i));
+        }
+    }
+
+    function logMsg(msg) {
+        log.append("<li>" + msg + "</li>");
+    }
+</script>
+</html>

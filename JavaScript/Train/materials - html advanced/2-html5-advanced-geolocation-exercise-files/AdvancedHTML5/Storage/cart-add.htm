@@ -1,0 +1,101 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Web Storage: Set Session Data</title>
+    <link rel="Stylesheet" href="/global.css" type="text/css" />
+    <style>
+        input[type="numeric"]
+        {
+            width:35px; 
+            text-align:right;      
+        }
+
+        input[type="button"]
+        {
+            margin-left:480px;
+        }
+
+        input[type="email"]
+        {
+            display:block;
+        }
+
+        table
+        {
+            border:1px solid #ccc;
+            border-collapse:collapse;
+        }
+
+        table tr td, table tr th
+        {
+            padding:4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Set Session Data</h1>
+        <h2>Shopping Cart</h2>
+        <div>
+            <input type="text" id="name" placeholder="Name" autofocus />
+            <input type="email" id="email" placeholder="Email" />
+        </div>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Item Id</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Extended</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span id="id">1001</span></td>
+                    <td><span id="desc">Futuristic internet-enabled contact lens</span></td>
+                    <td><span id="price" data-value="849.99">$849.99</span></td>
+                    <td><input type="numeric" id="qty" value="1" /></td>
+                    <td>$<span id="ext"></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="button" id="nextButton" value="Next &raquo;" />
+    </div>
+</body>
+<script src="../scripts/jquery-1.6.2.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        $("#qty").change(function () {
+            calculateCart();
+        });
+
+        $("#nextButton").click(function () {
+            var data = {
+                "Name": $("#name").val(),
+                "Email": $("#email").val(),
+                "Price": $("#price").attr("data-value"),
+                "Qty": $("#qty").val(),
+                "Ext": $("#ext").text(),
+                "Desc": $("#desc").text(),
+                "Id": $("#id").text()
+            };
+
+            var session = window.sessionStorage;
+            var dataString = JSON.stringify(data);
+            session.setItem("cart", dataString);
+            window.location.href = "cart-review.htm";
+
+        });
+
+        function calculateCart() {
+            var price = parseFloat($("#price").attr("data-value"));
+            var qty = parseInt($("#qty").val());
+            var ext = parseFloat(price * qty);
+            $("#ext").html(ext.toFixed(2));
+        }
+
+        calculateCart();
+    });
+</script>
+</html>

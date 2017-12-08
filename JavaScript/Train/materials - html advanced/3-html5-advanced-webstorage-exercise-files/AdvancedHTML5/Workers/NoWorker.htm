@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <title>Web Workers: No Worker</title>
+        <link rel="Stylesheet" href="worker.css" />
+        <script src="../scripts/jquery-1.6.2.js" type="text/javascript"></script>
+        <script>
+            $(function () {
+                var running = false;
+
+                $("#stopButton").click(function () {
+                    running = false;
+                    $("#msg").text("stopped");
+                });
+
+                var result = $("#result");
+                var i = 10000000000;
+                var rt, intervalId;
+
+                $("#startButton").click(function () {
+                    running = true;
+                    while (running) {
+                        rt = Math.sqrt(i);
+                        result.text(rt);
+                        i++;
+                    }
+
+                    $("#msg").text("started");
+                });
+
+                function crunch() {
+
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <section>
+            <header><h1>No WebWorker</h1></header>
+        </section>
+        <article>
+            <h2>Result: <output id="result"></output></h2>
+            <div id="msg"></div>
+            <input type="button" id="startButton" value="Start" />
+            <input type="button" id="stopButton" value="Stop" />
+        </article>
+        
+    </body>
+</html>

@@ -1,0 +1,63 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Web Storage: Get Session Data</title>
+    <link rel="Stylesheet" href="/global.css" type="text/css" />
+    <style>
+        table
+        {
+            border:1px solid #ccc;
+            border-collapse:collapse;
+        }
+
+        table tr td, table tr th
+        {
+            padding:4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Get Session Data</h1>
+        <h2>Order Summary</h2>
+        <div>
+            <div><span id="name"></span> (<span id="email"></span>)</div>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Item Id</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Qty</th>
+                        <th>Extended</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span id="id"></span></td>
+                        <td><span id="desc"></span></td>
+                        <td>$<span id="price"></span></td>
+                        <td><span id="qty"></span></td>
+                        <td>$<span id="ext"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="../scripts/jquery-1.6.2.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        var session = window.sessionStorage;
+        var data = JSON.parse(session.getItem("cart"));
+
+        $("#name").text(data.Name);
+        $("#email").text(data.Email);
+        $("#price").text(data.Price);
+        $("#qty").text(data.Qty);
+        $("#ext").text(data.Ext);
+        $("#desc").text(data.Desc);
+        $("#id").text(data.Id);
+    });
+</script>
+</html>

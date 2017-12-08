@@ -1,0 +1,203 @@
+// commenting
+
+// this is a single line comment
+
+write("hello world"); // comments can appear at the end of a line
+
+
+/*
+This
+is
+a
+multiline
+comment
+*/
+
+
+// variables and assignment
+
+var name = "Liam";
+write(name);
+
+var answer = 42;
+write(answer);
+write("");
+
+
+// null coalescing
+var isNull = null;
+var value = isNull || 1;
+write(value);
+?
+
+
+// objects
+
+var person = {
+  name: "Amory Blaine",
+  age: 21
+};
+
+write(person.name);
+
+write(person.age);
+
+
+// functions
+
+function add(first, second) {
+    return first + second;
+}
+
+write(add(7,5));
+
+// anonymous function
+var square = function(number) {
+      return number * number;
+}
+    
+write(square(3));
+
+
+// equality
+
+
+write("comparing simple types");
+write("cat" == "cat");
+write(42 == 40 + 2);
+write("");
+
+write("with type coercion");
+write("42" == 40 + 2);
+write(null == undefined);
+write(false == 0);
+write(' \t ' == 0);
+write("");
+
+write("without type coercion");
+write(42 === 40 + 2);
+write("42" === 40 + 2);
+write(null === undefined);
+write(false === 0);
+write(' \t ' === 0);
+write("");
+
+write("comparing objects");
+write({ prop: 0 } === { prop: 0 });  // identical objects are not equal
+var first = { prop: 0 }; 
+var second = first;
+write(first === second);
+
+
+// control flow
+
+// if
+if (2 > 1) {
+ write("Two is greater than one"); 
+} else {
+ write("One is greater than two"); 
+}
+write("");
+
+
+// while
+var keepGoing = true;
+while (keepGoing) {
+ write("Entered the while loop");
+ keepGoing = false;
+}
+write("");
+
+
+// for
+for (var i = 0; i <= 5; i++) {
+ write(i); 
+}
+write("");
+
+
+// switch
+var trafficLight = "yellow";
+write("The traffic light is " + trafficLight);
+
+switch(trafficLight) {
+  case "red": 
+    write("stop");     
+    break;
+  case "yellow":
+    write("prepare to stop");
+    break;
+  case "green":
+    write("go!");    
+    break;
+  default: 
+    write(trafficLight + " is an unrecognized color");  
+}
+write("");
+
+
+// ternary operator
+write(true ? "it was true!" : "it was false :(");
+
+
+// error handling
+
+var answer = nonExistantVariable;
+
+// handling exceptions
+try {
+  answer = nonExistantVariable;
+} catch (e) {
+  write(e.name);
+  write(e.message);
+}
+
+
+/* throwing custom exceptions
+
+throw {
+  name: 'MyCustomError',
+  message: 'Something has gone wrong'
+};
+
+*/
+
+
+// idioms
+
+
+// curly brackets
+if (true) {
+
+}
+
+
+// use of var
+// user
+var myVariable = 0;
+// instead of
+myVariable = 0;
+
+
+// declare variables at the start of each function
+function run() {
+   var value = 1;
+  
+  if (true) {
+      write(value);
+  }  
+}
+run();
+write("");
+
+
+// object specifiers
+function complicated(options) {
+  write(options.delta);
+}
+complicated({
+  delta: 0.775,
+  secretKey: "X099df8dfs8sf$#KF(",
+  exp: /\d{0,4}/  
+});
+

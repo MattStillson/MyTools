@@ -1,0 +1,1 @@
+﻿((Get-Item '\\networkfileshare\folder1\folder2').GetAccessControl('Access')).Access

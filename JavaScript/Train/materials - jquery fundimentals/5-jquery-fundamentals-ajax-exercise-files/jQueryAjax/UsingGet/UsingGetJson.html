@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="../Scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#MyButton').click(function () {
+                $.getJSON('../CustomerJson.aspx', { id: 5 },
+                   function (data) {
+                       alert('ID: ' + data.ID + ' ' +
+                          data.FirstName + ' ' + data.LastName);
+                   });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="MyButton">Click to Send ID and Get Customer JSON</button>
+</body>
+</html>

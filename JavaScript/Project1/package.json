@@ -1,0 +1,29 @@
+{
+  "name": "project1",
+  "version": "1.0.0",
+  "description": "Test project for cool shits",
+  "main": "app.js",
+  "scripts": {
+    "test": "node"
+  },
+  "author": "Matt Stillson",
+  "license": "MIT",
+  "dependencies": {
+    "accessibilityjs": "^1.0.1",
+    "activedirectory": "^0.7.2",
+    "activedirectory3": "^0.7.4",
+    "cheerio": "^1.0.0-rc.2",
+    "fs": "0.0.1-security",
+    "fs-extra": "^4.0.2",
+    "klaw": "^2.1.0",
+    "klaw-sync": "^3.0.2",
+    "nightmare": "^2.10.0",
+    "node-powershell": "^3.3.1",
+    "nodemailer": "^4.3.1",
+    "puppeteer": "^0.12.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "soupselect": "^0.2.0",
+    "wmi-client": "^0.4.0"
+  }
+}

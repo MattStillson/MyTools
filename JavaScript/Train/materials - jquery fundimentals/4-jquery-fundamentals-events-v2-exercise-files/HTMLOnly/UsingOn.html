@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Using on()</title>
+    <style type="text/css">
+        table {
+            width: 300px;
+        }
+    </style>
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            var tbody = $('#customers tbody');
+            $('#addRow').on('click', function () {
+                tbody.append('<tr><td>Jane</td><td>Doe</td></tr>');
+            });
+
+            tbody.on('click', 'td', function () {
+                alert($(this).text());
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="selectedPerson"></div>
+    <button id="addRow">Add Row</button>
+    <table id="customers">
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+        </tr>
+        <tr>
+            <td>Jim</td>
+            <td>Leaner</td>
+        </tr>
+        <tr>
+            <td>Michelle</td>
+            <td>James</td>
+        </tr>
+        <tr>
+            <td>Heedy</td>
+            <td>Faust</td>
+        </tr>
+        <tr>
+            <td>Tina</td>
+            <td>Smith</td>
+        </tr>
+        <tr>
+            <td>Supna</td>
+            <td>Patoria</td>
+        </tr>
+        <tr>
+            <td>Spike</td>
+            <td>Francis</td>
+        </tr>
+        <tr>
+            <td>Dan</td>
+            <td>Wahlin</td>
+        </tr>
+    </table>
+    
+</body>
+</html>

@@ -1,0 +1,14 @@
+authenticate
+isUserMemberOf
+find
+findUser
+findGroup
+findUsers
+findGroups
+groupExists
+userExists
+getGroupMembershipForGroup
+getGroupMembershipForUser
+getUsersForGroup
+getRootDSE
+findDeletedObjects

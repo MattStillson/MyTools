@@ -1,0 +1,27 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Microdata: Aggregate Review</title>
+    <link rel="Stylesheet" href="/global.css" type="text/css" />
+    <style>
+    img
+    {
+        display:block;
+    }
+    </style>
+</head>
+<body>
+    <div id="container" itemscope itemtype="http://data-vocabulary.org/Review-aggregate">
+        <h1>Aggregate Review</h1>
+        <h2 itemprop="itemreviewed">Death Star Cookie Jar</h2>
+        <img itemprop="photo" src="death-star-cookie-jar.jpg" />
+        <span itemprop="rating" itemscope itemtype="http://data-vocabulary.org/Rating">
+            <span itemprop="average">9</span>
+            out of 
+            <span itemprop="best">10</span>
+        </span>
+        based on <span itemprop="votes">24</span> ratings
+        <h2>User Reviews: <span itemprop="count">24</span></h2>
+    </div>   
+</body>
+</html>

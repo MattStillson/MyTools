@@ -1,0 +1,111 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Microdata: Event &amp; Organization</title>
+    <link rel="Stylesheet" href="/global.css" type="text/css" />
+    <style>
+    h2,h3,h4
+    {
+        margin-top:6px;
+        margin-bottom:4px;
+        letter-spacing:-1px;
+    }
+        
+    h3
+    {
+        margin-top:25px;
+    }
+    .event
+    {
+        padding:20px;
+        margin-left:auto;
+        margin-right:auto;
+        width:65%;
+        background-color:#fff;
+    }
+    table
+    {
+        border-collapse:collapse;
+    }
+        
+    table th td, table tr td
+    {
+        padding:8px;
+    }
+    </style>
+</head>
+<body>
+    <div id="container" itemscope itemtype="http://data-vocabulary.org/Event" class="event">
+        <h1>Event &amp; Organization</h1>
+        <h2>Winter <span itemprop="eventType">Concert</span> Series</h2>
+
+        <h3 itemprop="summary">​<a href="/events/beethoven" itemprop="url">Beethoven</a></h3>
+
+        <img itemprop="photo" src="Beethoven.jpg" />
+
+        <p itemprop="description">After centuries of silence one of the greatest artists
+        of all time is emerging with a new album and supporting tour. Beethoven's new
+        work is a fresh mixture of classical symphonies with bluegrass and neo-Latin influences. While the 
+        new compositions are first-rate, the stage show is reminiscent of early Beatles with
+        industrial sensibilities. This show is a must-see!</p>
+
+        <h3>When</h3>
+        <div>
+            <time itemprop="startDate" datetime="2012-02-29T18:00-08:00">Feb 29, 8:00 PM</time> —
+            <time itemprop="endDate" datetime="2012-02-29T21:00-08:00">Feb 29, 9:00 PM</time>
+        </div>
+
+        <h3>Where</h3>
+        <div itemprop="location" itemscope itemtype="http://data-vocabulary.org/Organization">
+            <h4 itemprop="name"><a href="/" itemprop="url" target="_blank">Carnegie Hall</a></h4>
+            <div itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+                <div itemprop="street-address">881 7th Ave</div>
+                <div>
+                    <span itemprop="locality">New York</span>,
+                    <span itemprop="region">NY</span>
+                    <span itemprop="postal-code">10019</span>
+                </div>
+            </div>
+
+            <a href="http://maps.google.com/maps?q=Carnegie+Hall,+7th+Avenue,+New+York,+NY&hl=en&sll=40.765455,-73.979681&sspn=0.001601,0.002411&gl=us&z=15&iwloc=A" target="_blank">Map</a>
+
+            <span itemprop="geo" itemscope itemtype="http://data-vocabulary.org/​Geo">
+                <meta itemprop="latitude" content="40.76545" />
+                <meta itemprop="longitude" content="-73.97969" />
+            </span>
+        </div>
+
+        <h3>Tickets</h3>
+        <table border="1" itemprop="ticket" itemscope itemtype="http://data-vocabulary.org/Offer">
+            <tr>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Details</th>
+            </tr>
+            <tr itemprop="ticket" itemscope itemtype="http://data-vocabulary.org/Offer">
+                <td><a href="/events/beethoven/presale" itemprop="offerurl">Presale</a></td>
+                <td>
+                    <span itemprop="price">$110</span>
+                    <span itemprop="currency" content="USD" />
+                </td>
+                <td>
+                    Available until <time itemprop="priceValidUntil" datetime="2011-12-01">7:00 PM 12/01/2011</time>.
+                    Only <span itemprop="quantity">350</span> available!
+                </td>            
+            </tr>
+            <tr itemprop="ticket" itemscope itemtype="http://data-vocabulary.org/Offer">
+                <td><a href="/events/beethoven/tickets" itemprop="offerurl">Regular</a></td>
+                <td>
+                    <span itemprop="price">$145</span>
+                    <span itemprop="currency" content="USD" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+<!--
+http://www.google.com/support/webmasters/bin/answer.py?answer=164506
+ -->

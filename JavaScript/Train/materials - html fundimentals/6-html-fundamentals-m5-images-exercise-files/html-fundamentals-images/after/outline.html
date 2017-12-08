@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us">
+  <head>
+   <title>HTML Fundamentals</title>
+   <meta name="Author" content="Matt Milner" />
+   <meta name="Description" content="Course teaching the basics of HTML markup" />
+   <meta name="keywords" lang="en-us" content="Pluralsight, HTML" />
+   <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+   
+   <!--this is an HTML comment -->
+   
+    <style type="text/css">
+    acronym {color:green}
+    .highlight {text-decoration:underline}
+    
+    OL.withAlpha {list-style-type:lower-alpha}
+    OL.withRoman {list-style-type:lower-roman}
+    OL.withUpperAlpha {list-style-type:upper-alpha}
+    OL.withUpperRoman {list-style-type:upper-roman}
+    
+    UL.square {list-style-type:square}
+    UL.circle {list-style-type:circle}
+    UL.disc {list-style-type:disc}
+    
+    #mainContent {clear:both}
+    div.rightNav {float:right; display:inline;clear:none; width:22%}
+    #overviewContainer {float:left;display:inline;clear:none; width:75%}
+  </style>
+  </head>
+  <body>
+  <!-- this is also a comment. Comments are ignored by clients/browsers 
+  so they are useful for documenting your markup or removing markup. -->
+    <h1>HTML Fundamentals</h1>
+    <object data="data:application/x-silverlight-2," 
+  type="application/x-silverlight-2" width="50%" height="150px">
+      <param name="source" value="./apps/SilverlightObjectDemo.xap" />
+      <param name="initParams" value="TextMessage=Do not use marquees in your HTML" />
+    <a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.60310.0" style="text-decoration:none">
+ 			  <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>
+		  </a>
+    
+    </object>
+    
+    <h2>Overview</h2>
+    <div id="overviewContainer">
+    <span>See the section on <a href="#terminology">terminology</a> for definitions of terms used here.</span>
+      <p>
+        <span id="htmlTag" class="highlight">
+          <acronym title="Hypertext Markup Language">HTML</acronym> drives the web.</span>
+          Whether you use <abbr title="Internet Explorer">IE</abbr>, Chrome, Firefox, Safari,
+           or some other browser, many of us use the web daily. 
+          In this course you will learn the fundamental elements of creating web pages 
+          using HTML.
+      </p>
+      <p>
+        Not covered in this course is detailed information about 
+        <acronym title="Cascading Style Sheets">CSS</acronym>, javascript, 
+        or <acronym title="Hypertext Transfer Protocol">HTTP</acronym> 
+        as those topics are covered in detail in other Pluralsight courses
+        <sup>
+          <a href="http://www.pluralsight-training.net/microsoft/Courses/TableOfContents?courseName=css-intro">1</a>,
+          <a href="http://www.pluralsight-training.net/microsoft/Courses/TableOfContents?courseName=xhttp-fund">2</a>
+        </sup>.
+      </p>
+      
+      <h3>Objectives</h3>
+        <ul class="square">
+          <li>Explain the fundamental concepts of HTML</li>
+          <li>Have fun
+            <ul >
+              <li>creating documents</li>
+              <li>creating memories</li>
+            </ul>
+          </li>
+          <li>Mark it up!</li>
+        </ul>
+        
+      <h3>Outline</h3>
+        <ol class="withUpperRoman">
+          <li>Introduction</li>
+          <!-- alternate model using element IDs
+          <li><a href=".\content\text.html#secondSection">Text elements</a></li>
+          -->
+          <li><a href=".\content\text.html#deepLink">Text elements</a></li>
+          <li><a href=".\content\lists.html">Lists</a>
+            <ol class="withRoman" >
+              <li>Unordered lists</li>
+              <li>Ordered lists</li>
+              <li>Definition lists</li>
+            </ol>
+          </li>
+          <li>Links</li>
+        </ol>
+    </div>
+    <div id="instructorOverview" class="rightNav">
+      <h3>Instructor</h3>
+      Matt Milner <br />
+      <img src=".\images\matt_small.jpg" alt="Matt Milner" height="185" width="200" />
+    </div>
+    
+    <div id="mainContent">
+      <h2>A little history</h2>
+        <cite>Tim Berners Lee</cite> is credited with creating the world wide web and HTML. 
+        <blockquote cite="http://www.w3.org/MarkUp/draft-ietf-iiir-html-01.txt">
+        The World Wide Web (W3) initiative links related information throughout the globe.  HTML provides one simple format for    providing linked information, and  all W3 compatible programs are
+     required to be capable of handling HTML. W3 uses an Internet
+     protocol (Hypertext Transfer Protocol, HTTP), which allows transfer
+     representations to be negotiated between client and server, the
+     result being returned in an extended MIME message.  HTML is
+     therefore just one, but an important one, of the representations
+     used with W3.
+
+        </blockquote>
+      
+      <br />
+      <a name="terminology" title="Technical terms">
+        <h2>Terminology</h2>
+      </a>
+      <dl>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language is the language used to author web pages</dd>
+        <dt>HTTP</dt>
+        <dd>HyperText Transfer Protocol is the network protocol used to request and send documents between computers</dd>
+       </dl>
+      <br />
+      <br />
+    </div>
+  </body>
+</html>

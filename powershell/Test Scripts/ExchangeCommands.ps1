@@ -1,0 +1,47 @@
+﻿#Exchange Report Online Commands:
+Get-ConnectionByClientTypeDetailReport
+Get-ConnectionByClientTypeReport
+Get-GroupActivityReport
+Get-HistoricalSearch
+Start-HistoricalSearch
+Stop-HistoricalSearch
+Get-MailboxActivityReport
+Get-MailboxUsageDetailReport
+Get-MailboxUsageReport
+Get-MailDetailDlpPolicyReport
+Get-MailDetailMalwareReport
+Get-MailDetailSpamReport
+Get-MailDetailTransportRuleReport
+Get-MailFilterListReport
+Get-MailTrafficPolicyReport
+Get-MailTrafficReport
+Get-MailTrafficSummaryReport
+Get-MailTrafficTopReport
+Get-MessageTrace
+Get-MessageTraceDetail
+Get-OutboundConnectorReport
+Get-RecipientStatisticsReport
+Get-ServiceDeliveryReport
+Get-StaleMailboxDetailReport
+Get-StaleMailboxReport
+
+#LYNC Online Report Commands:
+Get-CsActiveUserReport
+Get-CsAVConferenceTimeReport
+Get-CsConferenceReport
+Get-CsP2PAVTimeReport
+Get-CsP2PSessionReport
+
+#OFFICE 365 Report Commands:
+Get-O365ClientBrowserReport
+Get-O365ClientOSReport
+
+#SharePoint Online Report Commands:
+Get-SPOActiveUserReport
+Get-SPOSkyDriveProDeployedReport
+Get-SPOSkyDriveProStorageReport
+Get-SPOTeamSiteDeployedReport
+Get-SPOTeamSiteStorageReport
+Get-SPOTenantStorageMetricReport
+
+Start-OnlineCoexistenceSync

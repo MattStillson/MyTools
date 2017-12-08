@@ -1,0 +1,10 @@
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\SocketServer\bin\Debug\SocketServer.exe.config
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\SocketServer\bin\Debug\SocketServer.exe
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\SocketServer\bin\Debug\SocketServer.pdb
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\SocketServer\bin\Debug\FizzWare.NBuilder.dll
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\SocketServer\bin\Debug\Nugget.dll
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\SocketServer\bin\Debug\Microsoft.Practices.Unity.dll
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\SocketServer\bin\Debug\Nugget.pdb
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\SocketServer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\SocketServer\obj\x86\Debug\SocketServer.exe
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\SocketServer\obj\x86\Debug\SocketServer.pdb

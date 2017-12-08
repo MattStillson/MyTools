@@ -1,0 +1,14 @@
+﻿body
+{
+    font-family:Segoe UI;
+    padding:20px;
+}
+#msg
+{
+    background-color:#eee;
+    border:1px solid #ccc;
+    width:200px;
+    padding:10px;
+    margin-bottom:20px;
+    margin-left:15px;
+}

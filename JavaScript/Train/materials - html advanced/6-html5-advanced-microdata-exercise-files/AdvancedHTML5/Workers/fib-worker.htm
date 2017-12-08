@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>Web Workers: Generate Fibonacci Series - With Worker</title>
+    <link rel="Stylesheet" href="/global.css" type="text/css" />
+    <style>   
+    ol
+    {
+        background-color:#ccc;
+        width:20%;
+    }
+    
+    ol li
+    {
+        background-color:#fff;
+        padding-left:5px;    
+        margin:4px;
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Generate Fibonacci Series</h1>
+        <h2>With Worker</h2>
+        <input type="numeric" id="seriesLength" value="40" />
+        <input type="button" id="generateButton" value="Generate Series" />
+        <img src="load.gif" id="loadImg" />
+        <ol id="log"></ol>
+    </div>
+</body>
+<script src="../scripts/jquery-1.6.2.js" type="text/javascript"></script>
+<script>
+    var log = null;
+    var loadImg;
+    var worker;
+
+    $(function () {
+        log = $("#log");
+        loadImg = $("#loadImg");
+        loadImg.hide();
+
+        $("#generateButton").click(function () {
+            var seriesLength = parseInt($("#seriesLength").val());
+
+            log.html("");
+            loadImg.show();
+
+            worker = new Worker("fib-library-worker.js");
+            worker.onmessage = messageHandler;
+            worker.onerror = errorHandler;
+            worker.postMessage(seriesLength);
+        });
+
+        function messageHandler(e) {
+            var results = e.data;
+            $.each(results, function () {
+                logMsg(this);
+            });
+            loadImg.hide();
+        }
+
+        function errorHandler(e) {
+            logMsg(e.message);
+        }
+
+        function logMsg(msg) {
+            log.append("<li>" + msg + "</li>");
+        }
+
+    });
+</script>
+</html>

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "XEventReporting", "XEventReporting\XEventReporting.rptproj", "{AC9AF01A-9851-4404-8B75-7483FCA2CC16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC9AF01A-9851-4404-8B75-7483FCA2CC16}.Debug|Default.ActiveCfg = Debug
+		{AC9AF01A-9851-4404-8B75-7483FCA2CC16}.Debug|Default.Build.0 = DebugLocal
+		{AC9AF01A-9851-4404-8B75-7483FCA2CC16}.Debug|Default.Deploy.0 = DebugLocal
+		{AC9AF01A-9851-4404-8B75-7483FCA2CC16}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{AC9AF01A-9851-4404-8B75-7483FCA2CC16}.DebugLocal|Default.Build.0 = DebugLocal
+		{AC9AF01A-9851-4404-8B75-7483FCA2CC16}.Release|Default.ActiveCfg = Release
+		{AC9AF01A-9851-4404-8B75-7483FCA2CC16}.Release|Default.Build.0 = Release
+		{AC9AF01A-9851-4404-8B75-7483FCA2CC16}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

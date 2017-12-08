@@ -1,0 +1,5 @@
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\AdvancedHTML5\bin\AdvancedHTML5.dll
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\AdvancedHTML5\bin\AdvancedHTML5.pdb
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\AdvancedHTML5\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\AdvancedHTML5\obj\Debug\AdvancedHTML5.dll
+C:\Users\cshoemaker\Documents\Authoring\HTML5\trunk\src\Advanced\AdvancedHTML5\obj\Debug\AdvancedHTML5.pdb

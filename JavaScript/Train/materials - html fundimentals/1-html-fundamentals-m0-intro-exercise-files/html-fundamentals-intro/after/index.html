@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-us">
+  <head>
+   <title>Hello HTML</title>
+   <meta name="Author" content="Matt Milner" />
+   <meta name="Description" content="Sample for HTML course" />
+   <meta name="keywords" content="Pluralsight,Sample, HTML" />
+   <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+<!-- html comment
+   <base href="http://www.pluralsight.com/" />
+   -->
+   <script type="text/javascript">
+     window.onload = function() {
+       //alert("window loaded");
+       document.getElementById("myMessage").innerHTML = "hello javascript";
+     };
+   </script>
+   <style type="text/css">
+    body {color:red}
+    .message {color:green}
+   </style>
+   
+   <link rel="stylesheet" type="text/css" href="index.css" />
+   
+   
+  </head>
+  <body>
+    <p id="myMessage" class="message">Hello world</p>
+  
+  </body>
+</html>
